@@ -6,6 +6,7 @@ import {
   getAIState,
   getMutableAIState
 } from 'ai/rsc'
+import { createPrompt } from '@/lib/tutor-template'
 import { CoreMessage, generateId, ToolResultPart } from 'ai'
 import { Spinner } from '@/components/ui/spinner'
 import { Section } from '@/components/section'
@@ -96,7 +97,7 @@ async function submit(
     })
     messages.push({
       role: 'user',
-      content
+      content: createPrompt(content)
     })
   }
 
@@ -359,10 +360,10 @@ export const getUIStateFromAIState = (aiState: Chat) => {
   const chatId = aiState.chatId
   const isSharePage = aiState.isSharePage
 
-    // Ensure messages is an array of plain objects
-    const messages = Array.isArray(aiState.messages) 
-    ? aiState.messages.map(msg => ({...msg})) 
-    : [];
+  // Ensure messages is an array of plain objects
+  const messages = Array.isArray(aiState.messages)
+    ? aiState.messages.map(msg => ({ ...msg }))
+    : []
 
   return messages
     .map((message, index) => {

@@ -3,20 +3,24 @@ import { ArrowRight } from 'lucide-react'
 
 const exampleMessages = [
   {
-    heading: 'What is GPT-4o mini?',
-    message: 'What is GPT-4o mini?'
+    heading: 'What are congruent triangles?',
+    message: 'What are congruent triangles?'
   },
   {
-    heading: 'Why is Nvidia growing rapidly?',
-    message: 'Why is Nvidia growing rapidly?'
+    heading: 'Show an example of Pythagorean theorem for a Right triangle.',
+    message: 'Show an example of Pythagorean theorem for a Right triangle.'
   },
   {
-    heading: 'How does the Vercel AI SDK work?',
-    message: 'How does the Vercel AI SDK work?'
+    heading:
+      "How would I find the length of a triangle's side using Euclidean geometry?",
+    message:
+      "How would I find the length of a triangle's side using Euclidean geometry?"
   },
   {
-    heading: 'Tesla vs Rivian',
-    message: 'Tesla vs Rivian'
+    heading:
+      'How can I tell the difference between a Translation, Rotation, and Reflection?',
+    message:
+      'How can I tell the difference between a Translation, Rotation, and Reflection?'
   }
 ]
 export function EmptyScreen({
