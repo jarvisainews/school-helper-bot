@@ -90,7 +90,7 @@ async function submit(
         {
           id: generateId(),
           role: 'user',
-          content,
+          content: createPrompt(content),
           type
         }
       ]
@@ -99,6 +99,7 @@ async function submit(
       role: 'user',
       content: createPrompt(content)
     })
+    console.log('messages', messages)
   }
 
   async function processEvents() {
