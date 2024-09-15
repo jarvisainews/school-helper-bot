@@ -331,8 +331,17 @@ export const AI = createAI<AIState, UIState>({
     const path = `/search/${chatId}`
     const title =
       messages.length > 0
-        ? JSON.parse(messages[0].content)?.input?.substring(0, 100) ||
-          'Untitled'
+        ? (() => {
+            try {
+              return (
+                JSON.parse(messages[0].content)?.input?.substring(0, 100) ||
+                'Untitled'
+              )
+            } catch (e) {
+              console.error('Failed to parse message content:', e)
+              return 'Untitled'
+            }
+          })()
         : 'Untitled'
     // Add an 'end' message at the end to determine if the history needs to be reloaded
     const updatedMessages: AIMessage[] = [
